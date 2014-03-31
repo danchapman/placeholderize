@@ -1,0 +1,20 @@
+@mixin placeholderize($placeholder-name) {
+  %#{$placeholder-name} {@content;}
+
+  @if mixin-exists(hidpi) {
+    @include hidpi {
+      %#{$placeholder-name}-hidpi {@content;}
+    }
+  }
+  @each $breakpoint, $point in $breakpoints {
+    @include breakpoint($point) {
+      %#{$placeholder-name}-#{$breakpoint} {@content;}
+
+      @if mixin-exists(hidpi){
+        @include hidpi {
+          %#{$placeholder-name}-#{$breakpoint}-hidpi {@content;}
+        }
+      }
+    }
+  }
+}
