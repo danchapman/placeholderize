@@ -72,7 +72,7 @@ Suppose I want to create grouped selectors for classes are assigned various floa
 ```scss
 @include placeholderize(float-left) { float: left; }
 @include placeholderize(float-right) { float: right; }
-@include placeholderize(float-right) { float: none; }
+@include placeholderize(float-none) { float: none; }
 ```
 
 ### Step 3: Extend the generated placeholders
@@ -86,13 +86,13 @@ Now I have the following placeholders available to me. And because they are plac
 @include breakpoint($sm-screen) {
   @extend %float-left-sm;
   @extend %float-right-sm;
-  @extend %float-none;
+  @extend %float-none-sm;
 }
 
 @include breakpoint($md-screen) {
   @extend %float-left-md;
   @extend %float-right-md;
-  @extend %float-none;
+  @extend %float-none-md;
 }
 
 ```
