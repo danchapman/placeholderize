@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.0.3 - March 31, 2014
+* Update README with more examples
+
 ## 0.0.2 - March 31, 2014
 * Update docs and remove useless annonymous module
 

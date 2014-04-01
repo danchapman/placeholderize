@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'placeholderize'
-  s.version     = '0.0.2'
+  s.version     = '0.0.3'
   s.date        = '2014-03-31'
   s.summary     = "Make your SASS placeholders responsive."
   s.description = "A SASS mixin to generate placeholders that will work across all of your breakpoints."
