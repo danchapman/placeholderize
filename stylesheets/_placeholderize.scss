@@ -1,4 +1,4 @@
-mixin placeholderize($placeholder-name) {
+@mixin placeholderize($placeholder-name) {
   // create the min-width base placeholder
   %#{$placeholder-name} {@content;}
 

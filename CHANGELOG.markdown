@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.0.5 - June 12, 2014
+* Syntax error fix
+
 ## 0.0.4 - June 11, 2014
 * Updates placeholderize mixin to support min and max width
 
