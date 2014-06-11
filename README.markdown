@@ -142,4 +142,4 @@ And here is what is output!
 There are a few takeaways from this:
   * Placeholderize is great for outputting grouped selectors with chunks of sass that you plan to use many times across numerous breakpoints and objects.
   * This gives you the modularity of a mixin, while being more performant due to not having to insert the same code into numerous selectors.
-  * As you can see, it's not perfect because placeholder block of properties is still nested within its own media query. However, these grouped selectors are still [faster than nested selectors.](http://screwlewse.com/2010/08/different-css-techniques-and-their-performance/)
+  * As you can see, it's not perfect because the block of properties is still nested within its own media query. However, these grouped selectors are still [faster than nested selectors.](http://screwlewse.com/2010/08/different-css-techniques-and-their-performance/)

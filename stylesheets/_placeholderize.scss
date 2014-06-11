@@ -1,4 +1,5 @@
-@mixin placeholderize($placeholder-name) {
+mixin placeholderize($placeholder-name) {
+  // create the min-width base placeholder
   %#{$placeholder-name} {@content;}
 
   @if mixin-exists(hidpi) {
@@ -6,13 +7,50 @@
       %#{$placeholder-name}-hidpi {@content;}
     }
   }
-  @each $breakpoint, $point in $breakpoints {
-    @include breakpoint($point) {
-      %#{$placeholder-name}-#{$breakpoint} {@content;}
+
+  // loop through the breakpoints
+  @for $i from 1 to length($breakpoints) {
+    $breakpoint-i: nth($breakpoints, $i);
+    $point-i: nth($breakpoint-i, 1);
+    $value-i: nth($breakpoint-i, 2);
+
+    // create the min-width media placeholders
+    @include breakpoint($value-i) {
+      %#{$placeholder-name}-#{$point-i} {@content;}
 
       @if mixin-exists(hidpi){
         @include hidpi {
-          %#{$placeholder-name}-#{$breakpoint}-hidpi {@content;}
+          %#{$placeholder-name}-#{$point-i}-hidpi {@content;}
+        }
+      }
+    }
+
+    // create the max width base placeholders
+    @include breakpoint(0 $value-i) {
+      %#{$placeholder-name}-base-#{$point-i} {@content;}
+
+      @if mixin-exists(hidpi){
+        @include hidpi {
+          %#{$placeholder-name}-base-#{$point-i}-hidpi {@content;}
+        }
+      }
+    }
+
+    //create min/max width placeholders
+    @if $i + 1 <= length($breakpoints) {
+      @for $j from $i + 1 to length($breakpoints) {
+        $breakpoint-j: nth($breakpoints, $j);
+        $point-j: nth($breakpoint-j, 1);
+        $value-j: nth($breakpoint-j, 2);
+
+        @include breakpoint($value-i $value-j) {
+          %#{$placeholder-name}-#{$point-i}-#{$point-j} {@content;}
+
+          @if mixin-exists(hidpi){
+            @include hidpi {
+              %#{$placeholder-name}-#{$point-i}-#{$point-j}-hidpi {@content;}
+            }
+          }
         }
       }
     }
