@@ -18,5 +18,5 @@ Gem::Specification.new do |s|
 
   # Gem Bookkeeping
   s.add_dependency("sass",      ["~>3.3.0"])
-  s.add_dependency("breakpoint",   ["~>2.4.2"])
+  s.add_dependency("breakpoint",   ["~>2.5.0"])
 end
